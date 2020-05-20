@@ -5,11 +5,19 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next export",
+    "deploy": "netlify deploy"
   },
   "dependencies": {
+    "autoprefixer": "^9.8.0",
+    "gray-matter": "^4.0.2",
     "next": "9.4.1",
+    "postcss-import": "^12.0.1",
+    "raw-loader": "^4.0.1",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-markdown": "^4.3.1",
+    "tailwindcss": "^1.4.6"
   }
 }
