@@ -1,23 +1,28 @@
-import Link from 'next/link'
+import Link from "next/link";
+import PostBrief from "@components/PostBrief";
 
 export default function PostList({ posts }) {
-  if (posts === 'undefined') return null
+  if (posts === "undefined") return null;
 
   return (
-    <div>
+    <article className="pt-12 px-12 bg-gray-900">
       {!posts && <div>No posts!</div>}
-      <ul>
+      <ul className="flex flex-col">
         {posts &&
-          posts.map((post) => {
+          posts.map((props, index) => {
+            const {
+              slug,
+              frontmatter
+            } = props;
             return (
-              <li key={post.slug}>
-                <Link href={{ pathname: `/post/${post.slug}` }}>
-                  <a>{post.frontmatter.title}</a>
-                </Link>
-              </li>
-            )
+              <PostBrief
+                key={index}
+                slug={slug}
+                frontmatter={frontmatter}
+              />
+            );
           })}
       </ul>
-    </div>
+    </article>
   );
-};
+}
