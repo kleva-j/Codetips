@@ -1,17 +1,27 @@
-import Layout from '../components/Layout';
-import PostList from '../components/PostList';
-import matter from 'gray-matter'
+import React from "react";
+import matter from "gray-matter";
+import Layout from "@components/Layout";
+import Sidebar from "@components/Sidebar";
+import Socials from "@components/Socials";
+import Profile from "@components/Profile";
+import PostList from "@components/PostList";
 
-const Index = ({ title, description, posts, header, ...props }) => {
+const Index = ({ title, description, posts, header, projects, ...props }) => {
+
   return (
     <Layout pageTitle={title} description={description} {...header}>
-      <h1 className="text-purple-500 leading-normal">Welcome to my blog!</h1>
-      <p  className="text-gray-500">
-        {description}
-      </p>
-      <main>
-        <PostList posts={posts} />
-      </main>
+      <>
+        <Sidebar>
+          <Socials />
+        </Sidebar>
+        <section className="xl:flex md:w-10/12 lg:w-10/12 xl:w-10/12 lg:pl-24 z-10">
+          <section className="xl:w-3/5">
+            <Profile />
+            <PostList posts={posts} />
+          </section>
+          <section className="pt-24"></section>
+        </section>
+      </>
     </Layout>
   );
 };
@@ -26,17 +36,16 @@ export async function getStaticProps() {
     const values = keys.map(context);
 
     const data = keys.map((key, index) => {
-      let slug = key.replace(/^.*[\\\/]/, '').slice(0, -3);
+      let slug = key.replace(/^.*[\\\/]/, "").slice(0, -3);
       const value = values[index];
-      const { data, content } = matter(value.default);
+      const { data } = matter(value.default);
       return {
         frontmatter: data,
-        markdownBody: content,
         slug,
-      }
-    })
-    return data
-  })(require.context('../posts', true, /\.md$/))
+      };
+    });
+    return data;
+  })(require.context("../posts", true, /\.md$/));
 
   return {
     props: {
@@ -49,6 +58,7 @@ export async function getStaticProps() {
         siteName: configData.default.siteName,
         previewImage: configData.default.previewImage,
       },
+      projects: configData.default.projects,
     },
-  }
-};
+  };
+}
