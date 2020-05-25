@@ -1,3 +1,21 @@
 [build]
   command = "npm run build && npm run export"
-  publish = "out" 
+  publish = "out"
+
+[build.environment]
+  url = "https://codetips.io"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "no-referrer-when-downgrade"
+    X-Content-Type-Options = "nosniff"
+    Content-Security-Policy = "script-src 'self'"
+    Feature-Policy = "geolocation none; midi 'none'; notifications 'none'; push; sync-xhr 'self'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'self'; vibrate 'none'; fullscreen 'self'; payment 'none'"
+
+	cache-control = '''
+  public,
+  max-age=604800,
+  immutable'''
