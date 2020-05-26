@@ -19,7 +19,9 @@ const Index = ({ title, description, posts, header, projects, ...props }) => {
             <Profile />
             <PostList posts={posts} />
           </section>
-          <section className="pt-24"></section>
+          <section className="pt-24">
+            <h2>technical Writings</h2>
+          </section>
         </section>
       </>
     </Layout>

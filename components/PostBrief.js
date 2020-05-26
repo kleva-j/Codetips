@@ -17,13 +17,13 @@ export default function PostBrief({
       >
         {title}
       </span>
-      <span className="pt-2 pb-5 text-gray-500">{formattedDate}</span>
-      <ul className="flex">
+      <span className="py-2 text-gray-500">{formattedDate}</span>
+      <ul className="flex flex-wrap">
         {taglist &&
           taglist.map((tag, index) => (
             <li
               key={index}
-              className="border rounded border-teal-300 mr-2 text-gray-100 py-1 px-2"
+              className="border rounded border-teal-300 mr-2 text-sm text-gray-100 my-2 py-1 px-2"
             >
               {tag}
             </li>

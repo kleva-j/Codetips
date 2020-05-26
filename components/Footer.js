@@ -1,10 +1,7 @@
 export default function Footer() {
   return (
     <footer className="w-full mt-5 py-8 bg-gray-900 text-center">
-      <small className="text-gray-100">
-        Made with love by {' '}
-      </small>
-      <em className="hover:underline text-orange-500 hover:text-orange-600"> @kasmickleva</em>
+      
     </footer>
   );
 };

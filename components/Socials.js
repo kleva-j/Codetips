@@ -1,7 +1,23 @@
 import Link from "next/link";
 
 const contents = ["writings", "projects", "resume"];
-const socialInfo = [{ title: "linkedin" }, { title: "twitter" }, { title: "github" }];
+const socialInfo = [
+  {
+    title: "linkedin",
+    path: "/static/linkedin.svg",
+    href: "https://www.linkedin.com/in/michael-obasi-808806140/",
+  },
+  {
+    title: "twitter",
+    path: "/static/twitter.svg",
+    href: "https://twitter.com/kasmickleva",
+  },
+  {
+    title: "github",
+    path: "/static/github.svg",
+    href: "https://github.com/kleva-j",
+  },
+];
 
 export default function Socials() {
   return (
@@ -10,7 +26,10 @@ export default function Socials() {
         <div className="border border-teal-300 w-1/4 h-0 self-center mr-4 rounded"></div>
         <ul className="flex flex-col justify-between">
           {contents.map((item) => (
-            <li className="text-gray-200 hover:text-teal-300 py-2 uppercase">
+            <li
+              className="text-gray-200 hover:text-teal-300 py-2 uppercase"
+              key={item}
+            >
               <Link href={{ pathname: `/${item}` }}>
                 <a>{item}</a>
               </Link>
@@ -20,39 +39,20 @@ export default function Socials() {
       </aside>
 
       <aside className="flex justify-center w-full mt-12">
-        <a
-          href="https://www.linkedin.com/in/michael-obasi-808806140/"
-          className="w-6 h-6 rounded mx-3"
-          title="linkedin"
-        >
-          <img
-            src="/static/linkedin.svg"
-            alt="go to linkedin profile"
-            className="w-full h-full"
-          />
-        </a>
-        <a
-          href="https://twitter.com/kasmickleva"
-          className="w-6 h-6 rounded mx-3"
-          title="twitter"
-        >
-          <img
-            src="/static/twitter.svg"
-            alt="go to twitter profile"
-            className="w-full-h-full"
-          />
-        </a>
-        <a
-          href="https://github.com/kleva-j"
-          className="w-6 h-6 rounded mx-3"
-          title="github"
-        >
-          <img
-            src="/static/github.svg"
-            alt="go to github profile"
-            className="w-full h-full"
-          />
-        </a>
+        {socialInfo.map(({ title, path, href }) => (
+          <a
+            key={title}
+            href={href}
+            className="w-6 h-6 rounded mx-3"
+            title={title}
+          >
+            <img
+              src={path}
+              alt="go to linkedin profile"
+              className="w-full h-full"
+            />
+          </a>
+        ))}
       </aside>
     </article>
   );
