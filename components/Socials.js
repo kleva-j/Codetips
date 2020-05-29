@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import Link from "next/link";
+import { withRouter } from "next/router";
 
 const contents = ["writings", "projects", "resume"];
 const socialInfo = [
@@ -19,11 +21,17 @@ const socialInfo = [
   },
 ];
 
-export default function Socials() {
+function Socials({ page }) {
+  const position = useMemo(() => {
+    return page === 'writings' ? 'self-start' : (
+      page === 'projects' ? 'self-center' : 'self-end'
+      );
+  }, [page]);
+
   return (
     <article className="hidden lg:block xl:block mt-48 flex-col">
-      <aside className="flex">
-        <div className="border border-teal-300 w-1/4 h-0 self-center mr-4 rounded"></div>
+      <aside className="flex m-0">
+        <div className={`border border-teal-300 w-1/4 h-0 mr-4 rounded my-5 ${position}`}></div>
         <ul className="flex flex-col justify-between">
           {contents.map((item) => (
             <li
@@ -57,3 +65,5 @@ export default function Socials() {
     </article>
   );
 }
+
+export default withRouter(Socials);
