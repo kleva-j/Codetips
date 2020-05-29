@@ -12,16 +12,16 @@ export default function BlogPost({ siteTitle, frontmatter, markdownBody }) {
       pageTitle={`${siteTitle} | ${frontmatter.title}`}
       description={frontmatter.description}
     >
-      <Link href="/">
-        <a>Back to post list</a>
-      </Link>
-      <article>
-        <h1 className="text-purple-500 leading-normal">{frontmatter.title}</h1>
-        <p className="text-gray-500">By {frontmatter.author}</p>
-        <div>
-          <ReactMarkdown source={markdownBody} />
-        </div>
-      </article>
+      <section className="container flex justify-center mt-10">
+        <article>
+          <h1 className="text-gray-300 text-4xl font-semibold">{frontmatter.title}</h1>
+          <p className="text-gray-500 mt-4 mb-6">By {frontmatter.author}</p>
+          <img src={frontmatter.banner} alt="banner" className="m-auto" />
+
+          <ReactMarkdown source={markdownBody} className="py-10 xl:w-4/5 m-auto markdown" />
+
+        </article>
+      </section>
     </Layout>
   );
 }

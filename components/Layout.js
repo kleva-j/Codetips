@@ -26,8 +26,8 @@ export default function Layout({
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary" key="twcard" />
-        <meta name="twitter:title" content="Codetips | Blog site" key="" />
-        <meta name="twitter:description" content="Codetips provide code samples and tutorials to improve developer experience using different web technologies." key="twdesc" />
+        <meta name="twitter:title" content="Codetips" key="" />
+        <meta name="twitter:description" content="Codetips." key="twdesc" />
         <meta name="twitter:image" content={previewImage} key="twimage" />
         <meta name="twitter:creator" content={twitterHandle} key="twhandle" />
 

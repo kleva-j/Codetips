@@ -1,8 +1,84 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
 
 body {
-  background-color: #1A202C;
+  background-color: #1a202c;
+  scroll-behavior: smooth;
+}
+
+.markdown > * {
+  @apply text-gray-300 text-xl;
+}
+
+.markdown p {
+  @apply my-6;
+}
+
+.markdown h1 {
+  @apply text-4xl my-2 font-semibold;
+}
+
+.markdown h2 {
+  @apply text-3xl my-2 font-semibold;
+}
+
+.markdown h3 {
+  @apply text-2xl my-2 font-semibold;
+}
+
+.markdown h4 {
+  @apply text-xl my-2 font-semibold;
+}
+
+.markdown h5 {
+  @apply text-lg my-2 font-semibold;
+}
+
+.markdown h6 {
+  @apply text-base my-2 font-semibold;
+}
+
+.markdown ul {
+  @apply text-base list-outside list-disc text-teal-300 ml-16 my-6;
+}
+
+.markdown li {
+  @apply text-xl my-2 font-semibold;
+}
+
+.markdown p code {
+  @apply text-teal-300;
+}
+
+.markdown p a {
+  @apply text-red-300;
+}
+
+.markdown p a:hover {
+  @apply underline;
+}
+
+.markdown pre {
+  @apply my-6 p-4 relative text-base;
+}
+
+.markdown pre {
+  background-color: #2e2f3e;
+       font-family: monospace;
+          overflow-x: auto;
+}
+
+.markdown pre code {
+  @apply text-teal-300;
+}
+
+.markdown pre[data-lang]::before {
+  @apply absolute text-xs inset-x-0 top-0 block;
+}
+
+.markdown pre[data-lang]::before {
+  content: attr(data-lang);
+  tab-size: 2;
 }

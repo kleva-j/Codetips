@@ -1,64 +1,8 @@
 {
-  "title": "Codetips Blog",
+  "title": "Codetips",
   "description": "This is a simple blog built with Next, easily deployable to Netlify!",
   "twitterHandle": "@kasmickleva",
   "currentURL": "https://www.codetips.io",
   "previewImage": "./public/static/previewimage.jpg",
-  "siteName": "Codetips",
-  "projects": {
-    "User Management UI": {
-      "name": "User management UI",
-      "description": "",
-      "url": "",
-      "gif": ""
-    },
-    "HackerNews": {
-      "name": "HackerNews",
-      "description": "",
-      "url": "",
-      "gif": ""
-    },
-    "COVID-19 Impact Estimator": {
-      "name": "COVID-19 Impact Estimator",
-      "description": "",
-      "url": "",
-      "gif": ""
-    },
-    "TASKAIDER": {
-      "name": "TASKAIDER",
-      "description": "",
-      "url": "",
-      "gif": ""
-    },
-    "Currency Converter": {
-      "name": "Currency Converter",
-      "description": "",
-      "url": "",
-      "gif": ""
-    },
-    "I-Reporter": {
-      "name": "I-Reporter",
-      "description": "",
-      "url": "",
-      "gif": ""
-    },
-    "Tensorflow Object Detection": {
-      "name": "Tensorflow Object Detection",
-      "description": "",
-      "url": "",
-      "gif": ""
-    },
-    "Password Validator": {
-      "name": "Password Validator",
-      "description": "",
-      "url": "",
-      "gif": ""
-    },
-    "Fancy Chatbot": {
-      "name": "Fancy Chatbot",
-      "description": "",
-      "url": "",
-      "gif": ""
-    }
-  }
+  "siteName": "Codetips"
 }

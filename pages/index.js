@@ -1,37 +1,50 @@
-import React from "react";
 import matter from "gray-matter";
+import { withRouter } from "next/router";
+
 import Layout from "@components/Layout";
 import Sidebar from "@components/Sidebar";
 import Socials from "@components/Socials";
-import Profile from "@components/Profile";
-import PostList from "@components/PostList";
+import Writings from "@components/Writings";
+import Projects from "@components/Projects";
 
-const Index = ({ title, description, posts, header, projects, ...props }) => {
+const Content = ({ asPath, posts, projects }) => {
+  switch (asPath) {
+    case "projects": {
+      return <Projects projects={projects} />;
+    }
 
-  return (
-    <Layout pageTitle={title} description={description} {...header}>
-      <>
-        <Sidebar>
-          <Socials />
-        </Sidebar>
-        <section className="xl:flex md:w-10/12 lg:w-10/12 xl:w-10/12 lg:pl-24 z-10">
-          <section className="xl:w-3/5">
-            <Profile />
-            <PostList posts={posts} />
-          </section>
-          <section className="pt-24">
-            <h2>technical Writings</h2>
-          </section>
-        </section>
-      </>
-    </Layout>
-  );
+    default: {
+      return <Writings posts={posts} />;
+    }
+  }
 };
+
+const Index = withRouter(
+  ({ title, description, posts, header, projects, ...props }) => {
+    let {
+      router: { asPath },
+    } = props;
+    asPath = asPath.replace("/", "");
+    if (!asPath) asPath = "Writing";
+
+    return (
+      <Layout pageTitle={title} description={description} {...header}>
+        <>
+          <Sidebar page={asPath}>
+            <Socials />
+          </Sidebar>
+          <Content asPath={asPath} posts={posts} projects={projects} />
+        </>
+      </Layout>
+    );
+  }
+);
 
 export default Index;
 
 export async function getStaticProps() {
   const configData = await import(`../siteconfig.json`);
+  const projectData = await import("../projectlist.json");
 
   const posts = ((context) => {
     const keys = context.keys();
@@ -41,10 +54,7 @@ export async function getStaticProps() {
       let slug = key.replace(/^.*[\\\/]/, "").slice(0, -3);
       const value = values[index];
       const { data } = matter(value.default);
-      return {
-        frontmatter: data,
-        slug,
-      };
+      return { slug, ...data };
     });
     return data;
   })(require.context("../posts", true, /\.md$/));
@@ -60,7 +70,7 @@ export async function getStaticProps() {
         siteName: configData.default.siteName,
         previewImage: configData.default.previewImage,
       },
-      projects: configData.default.projects,
+      projects: Object.values(projectData.default.projects),
     },
   };
 }

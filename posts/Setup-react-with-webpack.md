@@ -1,6 +1,6 @@
 ---
 title: 'Setup your React application with Webpack 4, Babel and a Nodejs server (PART 1)'
-author: 'ichael Obasi'
+author: 'Michael Obasi'
 description: 'Setup your React application with Webpack 4, Babel and a Nodejs server (PART 1)'
 banner: 'https://ucarecdn.com/cb64679f-f312-4e59-b80a-b3305970ff84/'
 bannerDesc: 'content banner'

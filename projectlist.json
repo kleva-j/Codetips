@@ -1,0 +1,76 @@
+{
+  "projects": {
+    "User Management UI": {
+      "name": "User management UI",
+      "description": "A micro user management application.",
+      "gif": "https://i.postimg.cc/vZSGhs9J/Screenshot-10.png",
+      "github_url": "https://github.com/kleva-j/User-Management_UI",
+      "project_url": "https://user-management-ui.netlify.app/",
+      "stars": 100
+    },
+    "HackerNews": {
+      "name": "HackerNews",
+      "description": "This is a clone of the hackernews web application",
+      "gif": "https://www.therahnuma.com/wp-content/uploads/2018/09/1_WrPWxCwMIGLb14T9mR7ybA.jpeg",
+      "github_url": "https://github.com/kleva-j/HackerNews",
+      "project_url": "https://hacker-news-gamma.now.sh/",
+      "stars": 200
+    },
+    "COVID-19 Impact Estimator": {
+      "name": "COVID-19 Impact Estimator",
+      "description": "This tool helps to estimate the impact of the Novel COVID-19 disease around",
+      "gif": "https://i.postimg.cc/MKBWD4tH/Screenshot-12.png",
+      "github_url": "https://github.com/kleva-j/COVID-19-Impact-Estimator",
+      "project_url": "https://covid-19-impact-estimator.now.sh/",
+      "stars": 400
+    },
+    "TASKAIDER": {
+      "name": "TASKAIDER",
+      "description": "This is a project management tool.",
+      "gif": "https://storage.needpix.com/rsynced_images/owl-cool-3740574_1280.jpg",
+      "github_url": "",
+      "project_url": "https://dcrawler-1575237028508.firebaseapp.com/",
+      "stars": 108
+    },
+    "Currency Converter": {
+      "name": "Currency Converter",
+      "description": "This is a currency conversion application for converting almost every recognised currency in the globe.",
+      "gif": "https://i.postimg.cc/7ZcdWY6y/Screenshot-14.png",
+      "github_url": "https://github.com/kleva-j/currency-converter-react",
+      "project_url": "https://convert-currencies.herokuapp.com/",
+      "stars": 300
+    },
+    "I-Reporter": {
+      "name": "I-Reporter",
+      "description": "This is a web application for reporting crime in a local setting.",
+      "gif": "https://c1.wallpaperflare.com/preview/991/1018/411/hacker-attack-mask-internet.jpg",
+      "github_url": "https://github.com/kleva-j/TFJS-OBJECT_DETECTION",
+      "project_url": "https://ireporterapp.herokuapp.com/",
+      "stars": 300
+    },
+    "Tensorflow Object Detection": {
+      "name": "Tensorflow Object Detection",
+      "description": "An machine learning Object detection frontend application that uses Tensorflow Object detection API/interface to identify objects from a webcam feed.",
+      "gif": "https://cdn.pixabay.com/photo/2017/04/25/06/15/father-and-son-2258681_960_720.jpg",
+      "github_url": "https://github.com/kleva-j/TFJS-OBJECT_DETECTION",
+      "project_url": "https://tfjs-objectdetection.kleva-j.now.sh/",
+      "stars": 300
+    },
+    "Password Validator": {
+      "name": "Password Validator",
+      "description": "This is a password validation tool for validating the strength of your password.",
+      "gif": "https://upload.wikimedia.org/wikipedia/commons/1/18/Cool.png",
+      "github_url": "https://github.com/kleva-j/Password-Validator",
+      "project_url": "https://codepen.io/albertstein/full/VdwpOZ",
+      "stars": 300
+    },
+    "Fancy Chatbot": {
+      "name": "Fancy Chatbot",
+      "description": "This is a fancy chatbot",
+      "gif": "https://c1.peakpx.com/wallpaper/51/589/154/awesome-beautiful-blue-eyes-cool-wallpaper-preview.jpg",
+      "github_url": "https://github.com/kleva-j/MyChatBot",
+      "project_url": "https://kleva-j.github.io/MyChatBot",
+      "stars": 300
+    }
+  }
+}
