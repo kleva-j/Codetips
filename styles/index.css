@@ -66,8 +66,8 @@ body {
 
 .markdown pre {
   background-color: #2e2f3e;
-       font-family: monospace;
-          overflow-x: auto;
+  font-family: monospace;
+  overflow-x: auto;
 }
 
 .markdown pre code {

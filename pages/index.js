@@ -3,37 +3,20 @@ import { withRouter } from "next/router";
 
 import Layout from "@components/Layout";
 import Sidebar from "@components/Sidebar";
-import Socials from "@components/Socials";
 import Writings from "@components/Writings";
 import Projects from "@components/Projects";
 
-const Content = ({ asPath, posts, projects }) => {
-  switch (asPath) {
-    case "projects": {
-      return <Projects projects={projects} />;
-    }
-
-    default: {
-      return <Writings posts={posts} />;
-    }
-  }
-};
-
 const Index = withRouter(
-  ({ title, description, posts, header, projects, ...props }) => {
-    let {
-      router: { asPath },
-    } = props;
-    asPath = asPath.replace("/", "");
-    if (!asPath) asPath = "Writing";
+  ({ title, description, posts, header, projects, router: { asPath } }) => {
+    let path = asPath.replace("/", "").replace("/", "");
+    if (!path) path = "writings";
 
     return (
-      <Layout pageTitle={title} description={description} {...header}>
+      <Layout pageTitle={title} description={description} {...header} path={path}>
         <>
-          <Sidebar page={asPath}>
-            <Socials />
-          </Sidebar>
-          <Content asPath={asPath} posts={posts} projects={projects} />
+          <Sidebar path={path} />
+          {path === 'writings' && <Writings posts={posts} />}
+          {path === 'projects' && <Projects projects={projects} />}
         </>
       </Layout>
     );

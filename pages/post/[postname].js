@@ -14,12 +14,16 @@ export default function BlogPost({ siteTitle, frontmatter, markdownBody }) {
     >
       <section className="container flex justify-center mt-10">
         <article>
-          <h1 className="text-gray-300 text-4xl font-semibold">{frontmatter.title}</h1>
+          <h1 className="text-gray-300 text-4xl font-semibold hover:text-teal-300">
+            {frontmatter.title}
+          </h1>
           <p className="text-gray-500 mt-4 mb-6">By {frontmatter.author}</p>
           <img src={frontmatter.banner} alt="banner" className="m-auto" />
 
-          <ReactMarkdown source={markdownBody} className="py-10 xl:w-4/5 m-auto markdown" />
-
+          <ReactMarkdown
+            source={markdownBody}
+            className="py-10 xl:w-4/5 m-auto markdown"
+          />
         </article>
       </section>
     </Layout>
@@ -49,18 +53,12 @@ export async function getStaticProps({ ...ctx }) {
 }
 
 export async function getStaticPaths() {
-  const blogSlugs = ((context) => {
-    const keys = context.keys();
-    const data = keys.map((key, index) => {
-      let slug = key.replace(/^.*[\\\/]/, "").slice(0, -3);
-
-      return slug;
-    });
-    return data;
-  })(require.context("../../posts", true, /\.md$/));
-
+  const blogSlugs = ((context) =>
+    context.keys().map((key) => key.replace(/^.*[\\\/]/, "").slice(0, -3)))(
+    require.context("../../posts", true, /\.md$/)
+  );
   const paths = blogSlugs.map((slug) => `/post/${slug}`);
-
+  
   return {
     paths,
     fallback: false,
