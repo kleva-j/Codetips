@@ -8,10 +8,18 @@
       "project_url": "https://user-management-ui.netlify.app/",
       "stars": 100
     },
+    "User Management UI_2": {
+      "name": "User management UI 2",
+      "description": "A user management application.",
+      "gif": "https://i.postimg.cc/wTN5vX8P/user-mn-ui-2.png",
+      "github_url": "https://github.com/kleva-j/Enye_Frontend",
+      "project_url": "https://user-management-ui-2.vercel.app/",
+      "stars": 400
+    },
     "HackerNews": {
       "name": "HackerNews",
       "description": "This is a clone of the hackernews web application",
-      "gif": "https://www.therahnuma.com/wp-content/uploads/2018/09/1_WrPWxCwMIGLb14T9mR7ybA.jpeg",
+      "gif": "https://i.postimg.cc/024jKFx2/hackernews.png",
       "github_url": "https://github.com/kleva-j/HackerNews",
       "project_url": "https://hacker-news-gamma.now.sh/",
       "stars": 200
@@ -27,7 +35,7 @@
     "TASKAIDER": {
       "name": "TASKAIDER",
       "description": "This is a project management tool.",
-      "gif": "https://storage.needpix.com/rsynced_images/owl-cool-3740574_1280.jpg",
+      "gif": "https://i.postimg.cc/BvW5nPpV/Screenshot-20.png",
       "github_url": "",
       "project_url": "https://dcrawler-1575237028508.firebaseapp.com/",
       "stars": 108
@@ -38,14 +46,6 @@
       "gif": "https://i.postimg.cc/7ZcdWY6y/Screenshot-14.png",
       "github_url": "https://github.com/kleva-j/currency-converter-react",
       "project_url": "https://convert-currencies.herokuapp.com/",
-      "stars": 300
-    },
-    "I-Reporter": {
-      "name": "I-Reporter",
-      "description": "This is a web application for reporting crime in a local setting.",
-      "gif": "https://c1.wallpaperflare.com/preview/991/1018/411/hacker-attack-mask-internet.jpg",
-      "github_url": "https://github.com/kleva-j/TFJS-OBJECT_DETECTION",
-      "project_url": "https://ireporterapp.herokuapp.com/",
       "stars": 300
     },
     "Tensorflow Object Detection": {
@@ -59,7 +59,7 @@
     "Password Validator": {
       "name": "Password Validator",
       "description": "This is a password validation tool for validating the strength of your password.",
-      "gif": "https://upload.wikimedia.org/wikipedia/commons/1/18/Cool.png",
+      "gif": "https://i.postimg.cc/qB9WtxSH/validate-password.png",
       "github_url": "https://github.com/kleva-j/Password-Validator",
       "project_url": "https://codepen.io/albertstein/full/VdwpOZ",
       "stars": 300

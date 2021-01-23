@@ -1,6 +1,6 @@
-import PostList from "./Writing/PostList";
-import Profile from "./Profile";
-import RightSection from "./Writing/RightSection";
+import PostList from "./PostList";
+import Profile from "../Profile";
+import RightSection from "./RightSection";
 
 export default function Writings({ posts }) {
   return (

@@ -10,6 +10,7 @@ export default function Layout({
   currentURL='',
   previewImage='',
   siteName='',
+  path
 }) {
   return (
     <>
@@ -64,7 +65,7 @@ export default function Layout({
       </Head>
 
       <section className="bg-gray-900">
-        <Header />
+        <Header path={path} />
         <section className="flex justify-end pt-16">
           {children}
         </section>
