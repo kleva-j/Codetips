@@ -33,7 +33,7 @@ export default function Socials({ path }) {
         <div
           className={`border border-teal-300 w-1/4 h-0 mr-4 rounded my-5 ${position}`}
         ></div>
-        <ul className="flex flex-col justify-between">
+        <ul className="flex flex-col justify-between list-none">
           {contents.map((item) => (
             <li
               className="text-gray-200 hover:text-teal-300 py-2 uppercase"

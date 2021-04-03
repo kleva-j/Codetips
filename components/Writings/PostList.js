@@ -1,4 +1,3 @@
-import Link from "next/link";
 import PostBrief from "@components/Writings/PostBrief";
 
 export default function PostList({ posts }) {

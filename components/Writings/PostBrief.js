@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function PostBrief({ slug, title, date, tags }) {
+export default function PostBrief({ slug, title, date, tags = "" }) {
   const taglist = tags.split(", ");
   const formattedDate = new Date(+date).toDateString();
   return (
@@ -9,31 +9,23 @@ export default function PostBrief({ slug, title, date, tags }) {
       className="flex flex-col border-b-2 py-8 border-gray-700 relative"
     >
       <span
-        className="text-2xl text-gray-300 font-bold"
+        className="text-xl lg:text-2xl text-gray-300 font-bold hover:text-teal-300"
         style={{ fontFamily: "Lato, sans-serif" }}
       >
-        {title}
+        <Link href={`/post/${slug}`}>{title}</Link>
       </span>
       <span className="py-2 text-gray-500">{formattedDate}</span>
-      <ul className="flex flex-wrap">
+      <ul className="flex flex-wrap list-none">
         {taglist &&
           taglist.map((tag, index) => (
             <li
               key={index}
-              className="capitalize border rounded border-teal-300 mr-2 text-sm text-gray-100 my-2 py-1 px-2"
+              className="capitalize border cursor-pointer rounded-md border-teal-300 mr-2 text-sm text-gray-100 my-2 px-2 py-1"
             >
               {tag}
             </li>
           ))}
       </ul>
-      <Link href={`/post/${slug}`}>
-        <button
-          className="absolute bottom-0 right-0 w-24 rounded-full uppercase font-bold bg-teal-300 py-1 outline-none text-xs"
-          style={{ bottom: "-12px", right: "40px" }}
-        >
-          see post
-        </button>
-      </Link>
     </li>
   );
 }
