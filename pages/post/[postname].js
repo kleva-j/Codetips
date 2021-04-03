@@ -1,29 +1,32 @@
-import Link from "next/link";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 
-import Layout from "../../components/Layout";
+import Layout from "@components/Layout";
+import Renderer from "@components/Renderer";
 
 export default function BlogPost({ siteTitle, frontmatter, markdownBody }) {
   if (!frontmatter) return <></>;
 
   return (
     <Layout
-      pageTitle={`${siteTitle} | ${frontmatter.title}`}
+      pageTitle={`${frontmatter.title} - ${siteTitle}`}
       description={frontmatter.description}
     >
-      <section className="container flex justify-center mt-10">
-        <article>
-          <h1 className="text-gray-300 text-4xl font-semibold hover:text-teal-300">
+      <section className="container mt-16 md:mt-10">
+        <article className="">
+          <h1 className="text-gray-300 text-2xl md:text:3xl xl:text-4xl font-semibold">
             {frontmatter.title}
           </h1>
           <p className="text-gray-500 mt-4 mb-6">By {frontmatter.author}</p>
           <img src={frontmatter.banner} alt="banner" className="m-auto" />
 
-          <ReactMarkdown
-            source={markdownBody}
-            className="py-10 xl:w-4/5 m-auto markdown"
-          />
+          <div className="mx-auto mt-16 prose prose-sm md:prose-lg lg:prose-lg xl:prose-xl prose-teal">
+            <ReactMarkdown
+              source={markdownBody}
+              renderers={{ code: Renderer }}
+              className="xl:w-4/5 mx-auto"
+            />
+          </div>
         </article>
       </section>
     </Layout>
@@ -58,7 +61,7 @@ export async function getStaticPaths() {
     require.context("../../posts", true, /\.md$/)
   );
   const paths = blogSlugs.map((slug) => `/post/${slug}`);
-  
+
   return {
     paths,
     fallback: false,

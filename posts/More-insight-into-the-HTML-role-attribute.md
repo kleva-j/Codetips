@@ -15,6 +15,7 @@ The `role` attribute describes the role of an element in programs that can make 
 ```html
 <a href="#" role="button">Button Link</a>
 ``` 
+
 Screen Readers will read this element as “button” instead of “link”.
 
 There are four categories of roles:
@@ -24,7 +25,7 @@ There are four categories of roles:
 - Document Structure Roles
 - Landmark Roles
 
-### More info about HTML attributes:
+#### More info about HTML attributes:
 
 [<script src> attribute]()
 
@@ -41,6 +42,7 @@ There are four categories of roles:
 [<font> attribute]()
 
 More info about **HTML** attributes
+
 HTML elements can have attributes, which contain additional information about the element.
 
 **HTML** attributes generally come in name-value pairs, and always go in the opening tag of an element. The attribute name says what type of information you’re providing about the element, and the attribute value is the actual information.
@@ -58,7 +60,7 @@ There are many different **HTML** attributes, but most of them only work on cert
 
 In the example above, the value supplied to the `href` attribute could be any valid link. However, some attributes only have a set of valid options you can use, or values need to be in a specific format. The lang attribute tells the browser the default language of the contents in an **HTML** element. The values for the lang attribute should use standard language or country codes, such as en for English, or it for Italian.
 
-#### Boolean Attributes
+### Boolean Attributes
 
 Some **HTML** attributes don’t need a value because they only have one option. These are called Boolean attributes. The presence of the attribute in a tag will apply it to that **HTML** element. However, it’s okay to write out the attribute name and set it equal to the one option of the value. In this case, the value is usually the same as the attribute name.
 
