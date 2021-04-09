@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function ProjectBrief(props) {
   const { name, description, gif, project_url } = props;
 

@@ -14,9 +14,9 @@ module.exports = {
         dark: { raw: "(prefers-color-scheme: dark)" },
       },
       listStyleType: {
-        disc: "'➾'",
+        disc: "disc",
         roman: "upper-roman",
-        circle: "circle"
+        circle: "circle",
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -76,5 +76,6 @@ module.exports = {
       addUtilities(newUtilities);
     }),
     require("@tailwindcss/typography"),
+    require("@tailwindcss/aspect-ratio"),
   ],
 };

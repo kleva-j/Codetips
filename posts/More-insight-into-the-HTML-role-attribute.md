@@ -4,6 +4,7 @@ author: 'Michael Obasi'
 description: 'More insight into the HTML role attribute'
 banner: 'https://cdn.hashnode.com/res/hashnode/image/upload/v1581437210540/3ro-FJzTs.jpeg'
 bannerDesc: 'content banner'
+bannerDimension: "1024x792"
 tags: 'HTML, role, accessibility, aria-role'
 date: '1590260849918'
 ---

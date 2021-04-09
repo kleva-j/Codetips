@@ -3,6 +3,7 @@ title: "Angular Templates; <ng-container>, <ng-template><ng-content> and *ngTemp
 author: "Michael Obasi"
 description: "Angular Templates; <ng-container>, <ng-template><ng-content> and *ngTemplateOutlet. (PART 1)"
 banner: "https://hackeruna.com/wp-content/uploads/2020/05/angular-card.png"
+bannerDimension: "480x240"
 bannerDesc: "content banner"
 tags: "JavaScript, Angular, Templates, HTML"
 date: "1590260849918"
@@ -70,13 +71,11 @@ Let's take a look under the hood to see what Angular does with our template.
 
 ```html
 <ng-template [ngIf]="list" [ngIfElse]="loading">
-   <div class="listitem">
-     ...
-   </div>
+  <div class="listitem">...</div>
 </ng-template>
 
 <ng-template #loading>
-    <div class="spinner">Loading...</div>
+  <div class="spinner">Loading...</div>
 </ng-template>
 ```
 
