@@ -2,21 +2,36 @@ import matter from "gray-matter";
 import { withRouter } from "next/router";
 
 import Layout from "@components/Layout";
+import Resume from "@components/Resume";
 import Sidebar from "@components/Sidebar";
 import Writings from "@components/Writings";
 import Projects from "@components/Projects";
 
 const Index = withRouter(
-  ({ title, description, posts, header, projects, router: { asPath } }) => {
+  ({
+    title,
+    description,
+    posts,
+    header,
+    resume,
+    projects,
+    router: { asPath },
+  }) => {
     let path = asPath.replace("/", "").replace("/", "");
     if (!path) path = "writings";
 
     return (
-      <Layout pageTitle={title} description={description} {...header} path={path}>
+      <Layout
+        pageTitle={title}
+        description={description}
+        {...header}
+        path={path}
+      >
         <>
           <Sidebar path={path} />
-          {path === 'writings' && <Writings posts={posts} />}
-          {path === 'projects' && <Projects projects={projects} />}
+          {path === "writings" && <Writings posts={posts} />}
+          {path === "projects" && <Projects projects={projects} />}
+          {path === "resume" && <Resume resume={resume} />}
         </>
       </Layout>
     );
@@ -28,6 +43,7 @@ export default Index;
 export async function getStaticProps() {
   const configData = await import(`../siteconfig.json`);
   const projectData = await import("../projectlist.json");
+  const resume = await import("../resume.md");
 
   const posts = ((context) => {
     const keys = context.keys();
@@ -54,6 +70,7 @@ export async function getStaticProps() {
         previewImage: configData.default.previewImage,
       },
       projects: Object.values(projectData.default.projects),
+      resume: resume.default,
     },
   };
 }

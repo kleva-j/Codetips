@@ -4,21 +4,25 @@ import ReactMarkdown from "react-markdown";
 import Layout from "@components/Layout";
 import Renderer from "@components/Renderer";
 
+
 export default function BlogPost({ siteTitle, frontmatter, markdownBody }) {
   if (!frontmatter) return <></>;
 
+  const { title, description, author, banner, bannerDimension } = frontmatter;
+  const [imgWidth, imgHeight] = bannerDimension?.split("x");
+  const imgAspectRatio = Math.trunc(imgWidth / imgHeight);
+
   return (
-    <Layout
-      pageTitle={`${frontmatter.title} - ${siteTitle}`}
-      description={frontmatter.description}
-    >
+    <Layout pageTitle={`${title} - ${siteTitle}`} description={description}>
       <section className="container mt-16 md:mt-10">
         <article className="">
           <h1 className="text-gray-300 text-2xl md:text:3xl xl:text-4xl font-semibold">
-            {frontmatter.title}
+            {title}
           </h1>
-          <p className="text-gray-500 mt-4 mb-6">By {frontmatter.author}</p>
-          <img src={frontmatter.banner} alt="banner" className="m-auto" />
+          <p className="text-gray-500 mt-4 mb-6">By {author}</p>
+          <figure style={{ paddingTop: imgAspectRatio }}>
+            <img src={banner} alt="banner" className="m-auto" />
+          </figure>
 
           <div className="mx-auto mt-16 prose prose-sm md:prose-lg lg:prose-lg xl:prose-xl prose-teal">
             <ReactMarkdown
