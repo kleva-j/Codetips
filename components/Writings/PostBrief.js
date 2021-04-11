@@ -1,8 +1,8 @@
 import Link from "next/link";
+import { formatDate } from "utils";
 
-export default function PostBrief({ slug, title, date, tags = "" }) {
+export default function PostBrief({ slug, title, published, tags = "" }) {
   const taglist = tags.split(", ");
-  const formattedDate = new Date(+date).toDateString();
   return (
     <li
       key={slug}
@@ -14,7 +14,7 @@ export default function PostBrief({ slug, title, date, tags = "" }) {
       >
         <Link href={`/post/${slug}`}>{title}</Link>
       </span>
-      <span className="py-2 text-gray-500">{formattedDate}</span>
+      <span className="py-2 text-gray-500">{formatDate(+published)}</span>
       <ul className="flex flex-wrap list-none">
         {taglist &&
           taglist.map((tag, index) => (

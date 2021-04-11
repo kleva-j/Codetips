@@ -6,7 +6,8 @@ banner: "https://hackeruna.com/wp-content/uploads/2020/05/angular-card.png"
 bannerDimension: "480x240"
 bannerDesc: "content banner"
 tags: "JavaScript, Angular, Templates, HTML"
-date: "1590260849918"
+published: "1590260849918"
+updated: "1618177979351"
 ---
 
 A number of Angular developers have come across these core Angular directives like the `ng-template` and are quite stuck on how to effectively use them in their codebase. We are going to dive a little bit into these core Angular directives and get an understanding of how they work.

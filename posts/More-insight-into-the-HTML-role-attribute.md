@@ -1,12 +1,13 @@
 ---
-title: 'More insight into the HTML role attribute'
-author: 'Michael Obasi'
-description: 'More insight into the HTML role attribute'
-banner: 'https://cdn.hashnode.com/res/hashnode/image/upload/v1581437210540/3ro-FJzTs.jpeg'
-bannerDesc: 'content banner'
+title: "More insight into the HTML role attribute"
+author: "Michael Obasi"
+description: "More insight into the HTML role attribute"
+banner: "https://cdn.hashnode.com/res/hashnode/image/upload/v1581437210540/3ro-FJzTs.jpeg"
+bannerDesc: "content banner"
 bannerDimension: "1024x792"
-tags: 'HTML, role, accessibility, aria-role'
-date: '1590260849918'
+tags: "HTML, role, accessibility, aria-role"
+published: "1590260849918"
+updated: "1618177979351"
 ---
 
 The `role` attribute describes the role of an element in programs that can make use of it, such as screen readers or magnifiers.
@@ -15,7 +16,7 @@ The `role` attribute describes the role of an element in programs that can make 
 
 ```html
 <a href="#" role="button">Button Link</a>
-``` 
+```
 
 Screen Readers will read this element as “button” instead of “link”.
 
@@ -55,6 +56,7 @@ Here’s an example of a link that sends users to freeCodeCamp’s home page:
 ```html
 <a href="www.freecodecamp.org">Click here to go to freeCodeCamp!</a>
 ```
+
 Notice that the attribute name `(href)` and value `(“www.freeCodeCamp.org”)` are separated with an equals sign, and quotes surround the value.
 
 There are many different **HTML** attributes, but most of them only work on certain **HTML** elements. For example, the `href` attribute won’t work if it’s placed in an opening `<h1>` tag.
@@ -70,6 +72,5 @@ For example, the `<input>` element in a form can have a required attribute. This
 Here are examples that do the same thing:
 
 ```html
-<input type="text" required >
-<input type="text" required="required" >
-``` 
+<input type="text" required /> <input type="text" required="required" />
+```
