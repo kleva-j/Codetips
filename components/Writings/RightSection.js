@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { SortContentByParams } from "utils";
+import { formatDate, SortContentByParams } from "utils";
 
 export default function RightSection({ heading, content }) {
   const sortedContent = SortContentByParams(content, "title");
@@ -10,7 +10,7 @@ export default function RightSection({ heading, content }) {
         {heading}
       </h1>
       <ul className="pl-4 list-outside list-circle text-teal-300">
-        {sortedContent.map(({ title, slug, date }) => (
+        {sortedContent.map(({ title, slug, updated }) => (
           <li key={slug} className="pb-2 my-2 first:mt-12">
             <Link href={`/post/${slug}`}>
               <a className="text-lg text-gray-300 font-semibold py-2 pointer">
@@ -18,7 +18,7 @@ export default function RightSection({ heading, content }) {
               </a>
             </Link>
             <p className="text-gray-600 text-3">
-              published on <em>{new Date(+date).toDateString()}</em>
+              updated on <em>{formatDate(+updated)}</em>
             </p>
           </li>
         ))}

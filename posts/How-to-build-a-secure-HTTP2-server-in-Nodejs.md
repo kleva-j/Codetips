@@ -6,7 +6,8 @@ banner: "https://i.ytimg.com/vi/BF7uv5fs440/maxresdefault.jpg"
 bannerDimension: "1280x720"
 bannerDesc: "content banner"
 tags: "JavaScript, Nodejs, HTTP2, certificate"
-date: "1617031984406"
+published: "1617031984406"
+updated: "1618177979351"
 ---
 
 ### Why HTTP2
