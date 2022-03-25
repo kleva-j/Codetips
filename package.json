@@ -7,7 +7,9 @@
     "build": "next build",
     "export": "next export",
     "start": "next start",
-    "deploy": "netlify deploy"
+    "deploy": "netlify deploy",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.2.0",
@@ -20,10 +22,12 @@
     "react-dom": "16.14.0",
     "react-markdown": "^5.0.3",
     "sass": "^1.32.8",
-    "tailwindcss": "^1.8.12"
+    "tailwindcss": "^1.8.12",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.4.0",
     "react-syntax-highlighter": "^15.4.3"
-  }
+  },
+  "snyk": true
 }
