@@ -1,15 +1,17 @@
 {
-  "name": "typescript-nextjs-starter",
-  "description": "A TypeScript starter for Next.js that includes all you need to build amazing projects",
+  "name": "codetips",
+  "description": "A mini blog app",
   "version": "1.0.0",
   "private": true,
-  "author": "João Pedro Schmitz <hey@joaopedro.dev> (@jpedroschmitz)",
+  "author": "Michael Obasi <kasmickleva@gmail.com> (@kleva-j)",
   "license": "MIT",
-  "keywords": [
-    "nextjs",
-    "starter",
-    "typescript"
-  ],
+  "keywords": ["nextjs", "blog", "typescript"],
+  "packageManager": "pnpm@8.2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kleva-j/codetips.git"
+  },
+  "homepage": "https://github.com/kleva-j/codetips",
   "scripts": {
     "dev": "next",
     "build": "next build",
