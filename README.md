@@ -1,5 +1,5 @@
 # Codetips
-A mini blog app.
+This is a simple blog site built with Next. Codetips provide code samples and tutorials to improve developer experience using different web technologies. easily deployable to Netlify!.
 
 ## Features
 
@@ -67,3 +67,22 @@ This starter uses pnpm by default, but this choice is yours. If you'd like to sw
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for more information.
+
+## Deployment
+### Netlify
+
+To deploy to netlify firstly,
+- Create a `netlify.toml` file in the root directory of your project.
+- Install this `@netlify/plugin-nextjs` plugin as a dev dependency.
+- Update the toml file using this basic configurations below.
+
+```toml
+[[plugins]]
+package = "@netlify/plugin-nextjs"
+
+[build]
+command = "pnpm build"
+publish = ".next"
+```
+
+### Nextjs
