@@ -5,7 +5,11 @@
   "private": true,
   "author": "Michael Obasi <kasmickleva@gmail.com> (@kleva-j)",
   "license": "MIT",
-  "keywords": ["nextjs", "blog", "typescript"],
+  "keywords": [
+    "nextjs",
+    "blog",
+    "typescript"
+  ],
   "packageManager": "pnpm@8.2.0",
   "repository": {
     "type": "git",
@@ -28,9 +32,14 @@
     ]
   },
   "dependencies": {
+    "class-variance-authority": "0.6.0",
+    "clsx": "1.2.1",
+    "lucide-react": "0.233.0",
     "next": "13.4.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "tailwind-merge": "1.13.0",
+    "tailwindcss-animate": "1.0.5"
   },
   "devDependencies": {
     "@commitlint/cli": "17.6.3",
@@ -40,6 +49,7 @@
     "@types/react-dom": "18.2.4",
     "@typescript-eslint/eslint-plugin": "5.59.6",
     "@typescript-eslint/parser": "5.59.6",
+    "autoprefixer": "10.4.14",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.4",
     "eslint-config-prettier": "8.8.0",
@@ -48,7 +58,9 @@
     "eslint-plugin-prettier": "4.2.1",
     "husky": "8.0.3",
     "lint-staged": "13.2.2",
+    "postcss": "8.4.24",
     "prettier": "2.8.8",
+    "tailwindcss": "3.3.2",
     "typescript": "5.0.4"
   }
 }
