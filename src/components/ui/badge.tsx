@@ -17,15 +17,15 @@ const badgeVariants = cva(
         outline: 'text-foreground',
       },
       radius: {
+        xs: 'rounded-sm',
         sm: 'rounded',
-        md: 'round-md',
-        lg: 'rounded-lg',
-        full: 'rounded-full',
+        md: 'rounded-md',
+        lg: 'rounded-full',
       },
     },
     defaultVariants: {
       variant: 'default',
-      radius: 'full',
+      radius: 'lg',
     },
   },
 );
@@ -36,7 +36,10 @@ export interface BadgeProps
 
 function Badge({ className, variant, ...props }: BadgeProps) {
   return (
-    <div className={cn(badgeVariants({ variant }), className)} {...props} />
+    <div
+      className={cn(badgeVariants({ variant, ...props }), className)}
+      {...props}
+    />
   );
 }
 
