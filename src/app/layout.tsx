@@ -1,3 +1,4 @@
+import { Navbar } from '@/components/layout/navbar';
 import { Toaster } from '@/components/ui/toaster';
 import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
@@ -19,7 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {children}
+        <div className="container">
+          <div className="h-12" />
+          <Navbar />
+          {children}
+        </div>
         <Toaster />
       </body>
     </html>
