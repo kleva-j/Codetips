@@ -16,7 +16,7 @@ export const NavMenu = () => {
     <NavigationMenu>
       <NavigationMenuList>
         {NavigationLinks.map(({ id, path: href, label }) => (
-          <NavLink key={id} href={href} isActive={pathname.startsWith(href)}>
+          <NavLink key={id} href={href} isActive={pathname == href}>
             {label}
           </NavLink>
         ))}
