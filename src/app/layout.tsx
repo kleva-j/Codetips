@@ -1,10 +1,14 @@
+import { Navbar } from '@/components/layout/navbar';
 import { Toaster } from '@/components/ui/toaster';
-import { Inter } from 'next/font/google';
+import { Cairo } from 'next/font/google';
 import { Metadata } from 'next';
 
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const cairoFont = Cairo({
+  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: `TypeScript starter for Next.js`,
@@ -18,8 +22,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        {children}
+      <body className={cairoFont.className}>
+        <div className="container">
+          <div className="h-12" />
+          <Navbar />
+          {children}
+          <div className="h-12" />
+        </div>
         <Toaster />
       </body>
     </html>

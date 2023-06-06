@@ -7,7 +7,11 @@ module.exports = {
       center: true,
       padding: '2rem',
       screens: {
-        '2xl': '1400px',
+        sm: '520px',
+        md: '660px',
+        lg: '800px',
+        xl: '1000px',
+        '2xl': '1200px',
       },
     },
     extend: {
@@ -17,6 +21,7 @@ module.exports = {
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        light_bg: 'hsl(var(--dim-background))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
