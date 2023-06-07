@@ -13,3 +13,12 @@ export type ProjectType = {
   highlight?: boolean;
   github_url?: string;
 };
+
+export type SnippetType = {
+  title: string;
+  createdAt: string;
+  updatedAt?: string;
+  category?: string;
+  description?: string;
+  tags?: string[];
+};
