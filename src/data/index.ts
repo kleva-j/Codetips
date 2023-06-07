@@ -1,4 +1,4 @@
-import { ProjectType } from '@/types';
+import { ProjectType, SnippetType } from '@/types';
 
 export const projectsList: ProjectType[] = [
   {
@@ -118,5 +118,90 @@ export const projectsList: ProjectType[] = [
     tagline: `A free, open source notes app for the web.`,
     github_url: 'https://github.com/kleva-j/notepad',
     highlight: true,
+  },
+];
+
+export const snippetList: SnippetType[] = [
+  {
+    title: 'Range',
+    description: 'Generate an array of numbers, for happy iteration',
+    category: 'JavaScript',
+    createdAt: 'Mar 9, 2023',
+    tags: ['React', 'Next.js', 'JavaScript', 'html'],
+  },
+  {
+    title: 'useMousePosition',
+    description: "Store the user's cursor position in React state",
+    category: 'React Hook',
+    createdAt: 'Mar 10, 2022',
+    tags: ['React', 'TypeScript', 'DOM'],
+  },
+  {
+    title: 'useRetryUntilResolved',
+    description: "If at first you don't succeed, try try again.",
+    category: 'React Hook',
+    createdAt: 'Jan 11, 2022',
+    tags: ['React', 'JavaScript'],
+  },
+  {
+    title: 'VisuallyHidden',
+    description:
+      'A convenient component for contextualizing visual content for screen readers',
+    category: 'React Component',
+    createdAt: 'Oct 9, 2021',
+    tags: ['React', 'CSS', 'TypeScript', 'DOM'],
+  },
+  {
+    title: 'debounce',
+    description: 'A classic debounce function, written in modern JS.',
+    category: 'JavaScript',
+    createdAt: 'Oct 10, 2021',
+    tags: ['JavaScript', 'TypeScript', 'html'],
+  },
+  {
+    title: 'usePrefersReducedMotion',
+    description:
+      'Use animations responsibly! Guard against unintended consequences with this accessible React hook.',
+    category: 'React Hook',
+    createdAt: 'Oct 11, 2021',
+    tags: ['Next.js', 'CSS', 'TypeScript'],
+  },
+  {
+    title: 'useRandomInterval',
+    description: "It's like setInterval, but more random!",
+    category: 'React Hook',
+    createdAt: 'Jul 9, 2021',
+    tags: ['React', 'JavaScript'],
+  },
+  {
+    title: 'useTimeout',
+    description:
+      "A React-friendly wrapper around the 'setTimeout' JavaScript method.",
+    category: 'React Hook',
+    createdAt: 'Jul 10, 2021',
+    tags: ['React', 'JavaScript'],
+  },
+  {
+    title: 'useInterval',
+    description: 'A React-friendly alternative to window.setInterval',
+    category: 'React Hook',
+    createdAt: 'Jul 11, 2021',
+    tags: ['React'],
+  },
+  {
+    title: 'useStickyState',
+    description:
+      'A modified “useState” hook that uses localStorage to remember state across sessions.',
+    category: 'React Hook',
+    createdAt: 'Jan 9, 2021',
+    tags: ['React', 'Next.js', 'JavaScript', 'TypeScript', 'html', 'DOM'],
+  },
+  {
+    title: 'useBoop',
+    description:
+      'Apply a whimsical "temporary hover" effect with this customizable React hook.',
+    category: 'React Hook',
+    createdAt: 'Nov 10, 2020',
+    tags: ['React', 'Next.js', 'CSS', 'JavaScript', 'TypeScript'],
   },
 ];

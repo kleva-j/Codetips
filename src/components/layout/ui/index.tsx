@@ -385,7 +385,7 @@ const TooltipDemo = () => (
   </TooltipProvider>
 );
 
-export const Layout = () => {
+export const UiLayout = () => {
   return (
     <section className="flex flex-col gap-y-4">
       <div className="flex flex-col justify-center items-center gap-y-2">
