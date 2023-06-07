@@ -5,18 +5,25 @@ import {
   navigationMenuTriggerStyle,
   NavigationMenuLink,
 } from '@/components/ui/navigation-menu';
+import { cn } from '@/lib/utils';
 
 interface NavLinkProps extends LinkProps, PropsWithChildren {
-  isActive: boolean;
+  className?: string;
+  active: boolean;
 }
 
-export const NavLink: FC<NavLinkProps> = ({ href, isActive, ...props }) => {
+export const NavLink: FC<NavLinkProps> = (props) => {
+  const { href, active, className, ...rest } = props;
   return (
-    <NextLink href={href} passHref>
+    <NextLink href={href} passHref legacyBehavior>
       <NavigationMenuLink
-        className={navigationMenuTriggerStyle()}
-        active={isActive}
-        {...props}
+        className={cn(
+          navigationMenuTriggerStyle(),
+          'border-b-2 border-transparent hover:bg-transparent rounded-none data-[active]:border-b-rose-500 data-[active]:bg-transparent px-0',
+          className,
+        )}
+        active={active}
+        {...rest}
       />
     </NextLink>
   );

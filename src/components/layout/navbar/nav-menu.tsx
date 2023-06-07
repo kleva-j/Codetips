@@ -1,7 +1,6 @@
 'use client';
 
 import {
-  NavigationMenuItem,
   NavigationMenuList,
   NavigationMenu,
 } from '@/components/ui/navigation-menu';
@@ -14,13 +13,12 @@ export const NavMenu = () => {
 
   return (
     <NavigationMenu>
-      <NavigationMenuList>
+      <NavigationMenuList className="space-x-7">
         {NavigationLinks.map(({ id, path: href, label }) => (
-          <NavLink key={id} href={href} isActive={pathname == href}>
+          <NavLink key={id} href={href} active={pathname == href}>
             {label}
           </NavLink>
         ))}
-        <NavigationMenuItem></NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
   );
