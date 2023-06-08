@@ -1,25 +1,30 @@
 import { Navbar } from '@/components/layout/navbar';
 import { Toaster } from '@/components/ui/toaster';
-import { Cairo } from 'next/font/google';
+import { PropsWithChildren } from 'react';
+import { siteConfig } from '@/config/site';
+import { cairoFont } from '@/lib/fonts';
 import { Metadata } from 'next';
 
 import './globals.css';
 
-const cairoFont = Cairo({
-  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
-  subsets: ['latin'],
-});
-
 export const metadata: Metadata = {
-  title: `TypeScript starter for Next.js`,
-  description: `TypeScript starter for Next.js that includes all you need to build amazing apps`,
+  title: {
+    default: siteConfig.name,
+    template: `%s - ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: 'white' },
+    { media: '(prefers-color-scheme: dark)', color: 'black' },
+  ],
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <body className={cairoFont.className}>
