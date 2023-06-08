@@ -27,7 +27,7 @@ export const Snippets = () => {
         Short solutions to discrete problems which can be copied and pasted.
       </Text>
       <aside className="flex justify-between mt-5 gap-x-10">
-        <div className="flex flex-col flex-1 gap-y-3 py-2">
+        <div className="flex flex-col flex-1 gap-y-4">
           <ToggleGroup
             type="single"
             className="ml-auto"
