@@ -9,24 +9,11 @@ import {
 
 import { Moon, Sun, Laptop } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { atomWithStorage } from 'jotai/utils';
+import { useTheme } from 'next-themes';
 import { colorScheme } from '@/types';
-import { useAtom } from 'jotai';
-
-const themeAtom = atomWithStorage<colorScheme>('theme', colorScheme.light);
 
 export const ThemeDropdownMenu = () => {
-  const [theme, setTheme] = useAtom(themeAtom);
-  const prefersDarkMode = window.matchMedia(
-    '(prefers-color-scheme: dark)',
-  ).matches;
-
-  const systemTheme = prefersDarkMode ? colorScheme.dark : colorScheme.light;
-
-  if (theme === 'dark' || (!('theme' in localStorage) && prefersDarkMode)) {
-    document.documentElement.classList.add('dark');
-  } else document.documentElement.classList.remove('dark');
-
+  const { theme, setTheme } = useTheme();
   const Icon = theme === colorScheme.dark ? Moon : Sun;
 
   return (
@@ -45,7 +32,7 @@ export const ThemeDropdownMenu = () => {
           <Moon className="mr-2 h-4 w-4" />
           <span>Dark</span>
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme(systemTheme)}>
+        <DropdownMenuItem onClick={() => setTheme('system')}>
           <Laptop className="mr-2 h-4 w-4" />
           <span>System</span>
         </DropdownMenuItem>

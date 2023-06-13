@@ -10,6 +10,8 @@ import { cn } from '@/lib/utils';
 interface NavLinkProps extends LinkProps, PropsWithChildren {
   className?: string;
   active: boolean;
+  disabled?: boolean;
+  external?: boolean;
 }
 
 export const NavLink: FC<NavLinkProps> = (props) => {

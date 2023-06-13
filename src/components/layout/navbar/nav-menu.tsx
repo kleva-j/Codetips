@@ -4,8 +4,8 @@ import {
   NavigationMenuList,
   NavigationMenu,
 } from '@/components/ui/navigation-menu';
-import { NavigationLinks } from '@/lib/contants';
 import { usePathname } from 'next/navigation';
+import { siteConfig } from '@/config/site';
 import { NavLink } from './nav-link';
 
 export const NavMenu = () => {
@@ -14,8 +14,8 @@ export const NavMenu = () => {
   return (
     <NavigationMenu>
       <NavigationMenuList className="space-x-7">
-        {NavigationLinks.map(({ id, path: href, label }) => (
-          <NavLink key={id} href={href} active={pathname == href}>
+        {siteConfig.navigation.map(({ href, label }) => (
+          <NavLink key={label} href={href} active={pathname == href}>
             {label}
           </NavLink>
         ))}
