@@ -1,7 +1,8 @@
+import { ThemeProvider } from '@/components/context/theme-provider';
 import { Navbar } from '@/components/layout/navbar';
 import { Toaster } from '@/components/ui/toaster';
-import { PropsWithChildren } from 'react';
 import { siteConfig } from '@/config/site';
+import { PropsWithChildren } from 'react';
 import { cairoFont } from '@/lib/fonts';
 import { Metadata } from 'next';
 
@@ -26,15 +27,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={cairoFont.className}>
-        <div className="container">
-          <div className="h-12" />
-          <Navbar />
-          {children}
-          <div className="h-12" />
-        </div>
-        <Toaster />
+        <ThemeProvider attribute="class">
+          <div className="container">
+            <div className="h-12" />
+            <Navbar />
+            {children}
+            <div className="h-12" />
+          </div>
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
