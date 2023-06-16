@@ -15,6 +15,7 @@ export type ProjectType = {
 };
 
 export type SnippetType = {
+  id: string;
   title: string;
   createdAt: string;
   updatedAt?: string;
