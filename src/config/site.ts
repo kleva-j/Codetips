@@ -8,7 +8,7 @@ export const siteConfig = {
     { label: 'Home', href: '/' },
     { label: 'Blog', href: '/blog' },
     { label: 'Projects', href: '/projects' },
-    { label: 'Snippets', href: '/snippets' },
+    { label: 'Snippets', href: '/snippet' },
   ],
   links: {
     twitter: 'https://twitter.com/shadcn',
