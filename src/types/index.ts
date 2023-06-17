@@ -23,3 +23,14 @@ export type SnippetType = {
   description?: string;
   tags?: string[];
 };
+
+export type SnippetStateType = {
+  currentSnippet: SnippetType | null;
+  currentSnippetIndex: number | null;
+  snippets: SnippetType[];
+  isLoadingSnippets: boolean;
+  searchQuery?: string;
+  prevSnippet: number | null;
+  nextSnippet: number | null;
+  // TODO: add more states here as needed.
+};

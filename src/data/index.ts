@@ -207,7 +207,7 @@ export const snippetList: SnippetType[] = [
     tags: ['React', 'Next.js', 'JavaScript', 'TypeScript', 'html', 'DOM'],
   },
   {
-    id: '6kHspg2sURiDsiwXHAMn9q',
+    id: '6kHspg2sURiDsiwKHAMn9q',
     title: 'useBoop',
     description:
       'Apply a whimsical "temporary hover" effect with this customizable React hook.',

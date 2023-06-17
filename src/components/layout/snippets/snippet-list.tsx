@@ -3,12 +3,18 @@ import NextLink from 'next/link';
 import { Heading } from '@/components/ui/heading';
 import { Badge } from '@/components/ui/badge';
 import { Text } from '@/components/ui/text';
-import { snippetList } from '@/data';
+import { SnippetType } from '@/types';
+import { FC } from 'react';
 
-export const SnippetListView = () => {
+type Props = {
+  snippets: SnippetType[];
+  setCurrentSnippet?: (id: string) => void;
+};
+
+export const SnippetListView: FC<Props> = ({ snippets }) => {
   return (
     <ul className="flex flex-col gap-y-4">
-      {snippetList.map((snippet) => (
+      {snippets.map((snippet) => (
         <NextLink
           key={snippet.title}
           href={`/snippet?id=${snippet.id}`}
