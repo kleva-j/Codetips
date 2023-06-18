@@ -123,6 +123,7 @@ export const projectsList: ProjectType[] = [
 
 export const snippetList: SnippetType[] = [
   {
+    id: 'maxUhb9C2k67NzF7Si6Ycb',
     title: 'Range',
     description: 'Generate an array of numbers, for happy iteration',
     category: 'JavaScript',
@@ -130,6 +131,7 @@ export const snippetList: SnippetType[] = [
     tags: ['React', 'Next.js', 'JavaScript', 'html'],
   },
   {
+    id: 'koV98NXXoSqVMbXmXD8w6Z',
     title: 'useMousePosition',
     description: "Store the user's cursor position in React state",
     category: 'React Hook',
@@ -137,6 +139,7 @@ export const snippetList: SnippetType[] = [
     tags: ['React', 'TypeScript', 'DOM'],
   },
   {
+    id: '5UP4kidXcYArcLQrFG79g5',
     title: 'useRetryUntilResolved',
     description: "If at first you don't succeed, try try again.",
     category: 'React Hook',
@@ -144,6 +147,7 @@ export const snippetList: SnippetType[] = [
     tags: ['React', 'JavaScript'],
   },
   {
+    id: 't1Liq2YJRqW4Pbu1PWVjHt',
     title: 'VisuallyHidden',
     description:
       'A convenient component for contextualizing visual content for screen readers',
@@ -152,6 +156,7 @@ export const snippetList: SnippetType[] = [
     tags: ['React', 'CSS', 'TypeScript', 'DOM'],
   },
   {
+    id: 'mrofzbCguLPH1wiu1AMihd',
     title: 'debounce',
     description: 'A classic debounce function, written in modern JS.',
     category: 'JavaScript',
@@ -159,6 +164,7 @@ export const snippetList: SnippetType[] = [
     tags: ['JavaScript', 'TypeScript', 'html'],
   },
   {
+    id: '7jQavTuQ8448oVvBrWZyAH',
     title: 'usePrefersReducedMotion',
     description:
       'Use animations responsibly! Guard against unintended consequences with this accessible React hook.',
@@ -167,6 +173,7 @@ export const snippetList: SnippetType[] = [
     tags: ['Next.js', 'CSS', 'TypeScript'],
   },
   {
+    id: '7Y2ZwAxGv5cDxq1u3vvzgB',
     title: 'useRandomInterval',
     description: "It's like setInterval, but more random!",
     category: 'React Hook',
@@ -174,6 +181,7 @@ export const snippetList: SnippetType[] = [
     tags: ['React', 'JavaScript'],
   },
   {
+    id: 'rXWZFyD3RehdvWoWeMQkij',
     title: 'useTimeout',
     description:
       "A React-friendly wrapper around the 'setTimeout' JavaScript method.",
@@ -182,6 +190,7 @@ export const snippetList: SnippetType[] = [
     tags: ['React', 'JavaScript'],
   },
   {
+    id: 'hqq7sePJbpfE2yJoKLfFUD',
     title: 'useInterval',
     description: 'A React-friendly alternative to window.setInterval',
     category: 'React Hook',
@@ -189,6 +198,7 @@ export const snippetList: SnippetType[] = [
     tags: ['React'],
   },
   {
+    id: '6kHspg2sURiDsiwXHAMn9q',
     title: 'useStickyState',
     description:
       'A modified “useState” hook that uses localStorage to remember state across sessions.',
@@ -197,6 +207,7 @@ export const snippetList: SnippetType[] = [
     tags: ['React', 'Next.js', 'JavaScript', 'TypeScript', 'html', 'DOM'],
   },
   {
+    id: '6kHspg2sURiDsiwKHAMn9q',
     title: 'useBoop',
     description:
       'Apply a whimsical "temporary hover" effect with this customizable React hook.',

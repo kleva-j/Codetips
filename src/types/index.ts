@@ -15,10 +15,22 @@ export type ProjectType = {
 };
 
 export type SnippetType = {
+  id: string;
   title: string;
   createdAt: string;
   updatedAt?: string;
   category?: string;
   description?: string;
   tags?: string[];
+};
+
+export type SnippetStateType = {
+  currentSnippet: SnippetType | null;
+  currentSnippetIndex: number | null;
+  snippets: SnippetType[];
+  isLoadingSnippets: boolean;
+  searchQuery?: string;
+  prevSnippet: number | null;
+  nextSnippet: number | null;
+  // TODO: add more states here as needed.
 };

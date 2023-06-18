@@ -8,7 +8,9 @@ import { SnippetCardView } from '@/components/layout/snippets/snippet-grid';
 import { Taglist } from '@/components/layout/snippets/taglist';
 import { Heading } from '@/components/ui/heading';
 import { List, LayoutGrid } from 'lucide-react';
+import { SnippetStateAtom } from '@/lib/atom';
 import { Text } from '@/components/ui/text';
+import { useAtomValue } from 'jotai';
 
 enum ViewType {
   grid = 'grid',
@@ -17,6 +19,7 @@ enum ViewType {
 
 export const Snippets = () => {
   const [view, setView] = useState<ViewType>(ViewType.list);
+  const { snippets } = useAtomValue(SnippetStateAtom);
 
   return (
     <section>
@@ -49,8 +52,8 @@ export const Snippets = () => {
               <LayoutGrid size={18} />
             </ToggleGroupItem>
           </ToggleGroup>
-          {view === ViewType.list && <SnippetListView />}
-          {view === ViewType.grid && <SnippetCardView />}
+          {view === ViewType.list && <SnippetListView snippets={snippets} />}
+          {view === ViewType.grid && <SnippetCardView snippets={snippets} />}
         </div>
         <Taglist />
       </aside>
