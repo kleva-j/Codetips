@@ -12,9 +12,7 @@ import { MoveLeft, MoveRight, ChevronLeft } from 'lucide-react';
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   const snippetState = useAtomValue(SnippetStateAtom);
 
-  const { prevSnippet, snippets, nextSnippet, currentSnippetIndex } =
-    snippetState;
-  // console.log({ prevSnippet, nextSnippet, currentSnippetIndex });
+  const { snippets, nextSnippet, currentSnippetIndex } = snippetState;
 
   return (
     <section className="mt-10 space-y-10">
@@ -25,16 +23,18 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
       </Button>
       {children}
       <div className="flex justify-between">
-        {prevSnippet != null && prevSnippet != currentSnippetIndex && (
-          <Button variant="ghost" className="mr-auto" asChild>
-            <Link
-              href={`/snippet?id=${snippets[prevSnippet].id}`}
-              as={`/snippet/${snippets[prevSnippet].id}`}
-            >
-              <MoveLeft className="mr-2 h-4 w-4" /> Prev Snippet
-            </Link>
-          </Button>
-        )}
+        {nextSnippet != null &&
+          nextSnippet - 2 >= 0 &&
+          nextSnippet - 2 != currentSnippetIndex && (
+            <Button variant="ghost" className="mr-auto" asChild>
+              <Link
+                href={`/snippet?id=${snippets[nextSnippet - 2].id}`}
+                as={`/snippet/${snippets[nextSnippet - 2].id}`}
+              >
+                <MoveLeft className="mr-2 h-4 w-4" /> Prev Snippet
+              </Link>
+            </Button>
+          )}
         {nextSnippet != null && nextSnippet != currentSnippetIndex && (
           <Button variant="ghost" className="ml-auto" asChild>
             <Link

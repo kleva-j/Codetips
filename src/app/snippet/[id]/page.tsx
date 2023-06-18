@@ -12,10 +12,8 @@ import { Text } from '@/components/ui/text';
 export default function Snippet({ params }: { params: { id: string } }) {
   const { id } = params;
 
-  const snippetState = useAtomValue(SnippetStateAtom);
+  const { snippets } = useAtomValue(SnippetStateAtom);
   const [, updateSnippetState] = useAtom(updateSnippetsState);
-
-  const { prevSnippet, snippets, nextSnippet } = snippetState;
 
   const snippetIndex = snippets.findIndex((snippet) => snippet.id === id);
 
@@ -30,8 +28,6 @@ export default function Snippet({ params }: { params: { id: string } }) {
     isLoadingSnippets: false,
     currentSnippet: snippet,
   };
-
-  console.log({ prevSnippet, snippetIndex, nextSnippet });
 
   React.useEffect(() => {
     if (snippet) updateSnippetState(update);
