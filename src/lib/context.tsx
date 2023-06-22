@@ -8,7 +8,7 @@ import {
 import { AppState } from '@/types';
 
 import { fetchArticles } from './api';
-import { actions } from './contants';
+import { actions } from './constant';
 
 export const initialState: AppState = {
   articles: {},

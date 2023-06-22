@@ -17,8 +17,6 @@ export const popularTags = [
   'DOM',
 ];
 
-export const mongodb_url = `mongodb+srv://codetips-dev:NiwFVfTXRyRiIRIL@cluster0.pqfii.mongodb.net/codetips-dev`;
-
 export const actions = {
   FETCH_ARTICLES: 'FETCH_ARTICLES',
   SET_ARTICLE_ID: 'SET_ARTICLE_ID',
