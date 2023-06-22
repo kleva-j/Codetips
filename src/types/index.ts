@@ -22,6 +22,8 @@ export type SnippetType = {
   category?: string;
   description?: string;
   tags?: string[];
+  type?: 'blog' | 'snippet';
+  content?: string;
 };
 
 export type SnippetStateType = {
@@ -34,3 +36,21 @@ export type SnippetStateType = {
   nextSnippet: number | null;
   // TODO: add more states here as needed.
 };
+
+export type AppState = {
+  // docs?: Array<SnippetType>
+  articles: {
+    docs?: Array<SnippetType>;
+    [key: string]: any;
+  };
+  articleId: string | null;
+  isLoadingArticle: boolean;
+  searchQuery: string;
+  prevArticle: SnippetType | null;
+  nextArticle: SnippetType | null;
+};
+
+export enum ViewType {
+  grid = 'grid',
+  list = 'list',
+}
