@@ -7,43 +7,44 @@ import { SnippetType } from '@/types';
 import { FC } from 'react';
 
 type Props = {
-  snippets: SnippetType[];
+  snippets?: SnippetType[];
   setCurrentSnippet?: (id: string) => void;
 };
 
 export const SnippetListView: FC<Props> = ({ snippets }) => {
   return (
     <ul className="flex flex-col gap-y-4">
-      {snippets.map((snippet) => (
-        <NextLink
-          key={snippet.title}
-          href={`/snippet?id=${snippet.id}`}
-          as={`/snippet/${snippet.id}`}
-        >
-          <li className="flex flex-col gap-y-2 border border-transparent hover:border-accent p-3 rounded cursor-pointer">
-            <div className="flex justify-between">
-              <Heading
-                variant="h4"
-                className="text-rose-500 hover:underline cursor-pointer"
-              >
-                {snippet.title}
-              </Heading>
-              <Text>{snippet.createdAt}</Text>
-            </div>
-            <div className="flex space-x-3 items-center">
-              {snippet.tags?.map((tag) => (
-                <Badge
-                  key={tag}
-                  variant="outline"
-                  className="cursor-pointer hover:border-rose-500"
+      {snippets &&
+        snippets.map((snippet) => (
+          <NextLink
+            key={snippet.title}
+            href={`/snippet?id=${snippet.id}`}
+            as={`/snippet/${snippet.id}`}
+          >
+            <li className="flex flex-col gap-y-2 border border-transparent hover:border-accent p-3 rounded cursor-pointer">
+              <div className="flex justify-between">
+                <Heading
+                  variant="h4"
+                  className="text-rose-500 hover:underline cursor-pointer"
                 >
-                  {tag}
-                </Badge>
-              ))}
-            </div>
-          </li>
-        </NextLink>
-      ))}
+                  {snippet.title}
+                </Heading>
+                <Text>{snippet.createdAt}</Text>
+              </div>
+              <div className="flex space-x-3 items-center">
+                {snippet.tags?.map((tag) => (
+                  <Badge
+                    key={tag}
+                    variant="outline"
+                    className="cursor-pointer hover:border-rose-500"
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </li>
+          </NextLink>
+        ))}
     </ul>
   );
 };

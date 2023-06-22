@@ -1,7 +1,7 @@
 import { CardHeader, Card } from '@/components/ui/card';
 import { CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { popularTags } from '@/lib/contants';
+import { popularTags } from '@/lib/constants';
 import { CardContent } from '@/components/ui/card';
 
 export const Taglist = () => {

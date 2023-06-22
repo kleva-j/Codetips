@@ -8,18 +8,13 @@ import { SnippetCardView } from '@/components/layout/snippets/snippet-grid';
 import { Taglist } from '@/components/layout/snippets/taglist';
 import { Heading } from '@/components/ui/heading';
 import { List, LayoutGrid } from 'lucide-react';
-import { SnippetStateAtom } from '@/lib/atom';
+import { UseAppContext } from '@/lib/context';
 import { Text } from '@/components/ui/text';
-import { useAtomValue } from 'jotai';
-
-enum ViewType {
-  grid = 'grid',
-  list = 'list',
-}
+import { ViewType } from '@/types';
 
 export const Snippets = () => {
   const [view, setView] = useState<ViewType>(ViewType.list);
-  const { snippets } = useAtomValue(SnippetStateAtom);
+  const { state } = UseAppContext();
 
   return (
     <section>
@@ -35,7 +30,7 @@ export const Snippets = () => {
             type="single"
             className="ml-auto"
             value={view}
-            onValueChange={(value: ViewType) => setView(value)}
+            onValueChange={(value: ViewType) => value && setView(value)}
           >
             <ToggleGroupItem
               value={ViewType.list}
@@ -52,8 +47,12 @@ export const Snippets = () => {
               <LayoutGrid size={18} />
             </ToggleGroupItem>
           </ToggleGroup>
-          {view === ViewType.list && <SnippetListView snippets={snippets} />}
-          {view === ViewType.grid && <SnippetCardView snippets={snippets} />}
+          {view === ViewType.list && (
+            <SnippetListView snippets={state.articles.docs} />
+          )}
+          {view === ViewType.grid && (
+            <SnippetCardView snippets={state.articles.docs} />
+          )}
         </div>
         <Taglist />
       </aside>
