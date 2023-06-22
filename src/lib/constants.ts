@@ -16,3 +16,8 @@ export const popularTags = [
   'html',
   'DOM',
 ];
+
+export const actions = {
+  FETCH_ARTICLES: 'FETCH_ARTICLES',
+  SET_ARTICLE_ID: 'SET_ARTICLE_ID',
+};
