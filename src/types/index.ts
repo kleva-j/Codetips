@@ -23,7 +23,7 @@ export type SnippetType = {
   description?: string;
   tags?: string[];
   type?: 'blog' | 'snippet';
-  content?: string;
+  content?: Array<Record<string, never>>;
 };
 
 export type SnippetStateType = {
@@ -38,16 +38,25 @@ export type SnippetStateType = {
 };
 
 export type AppState = {
-  // docs?: Array<SnippetType>
-  articles: {
-    docs?: Array<SnippetType>;
-    [key: string]: any;
-  };
+  articles: ArticlesType;
   articleId: string | null;
   isLoadingArticle: boolean;
   searchQuery: string;
   prevArticle: SnippetType | null;
   nextArticle: SnippetType | null;
+};
+
+export type ArticlesType = {
+  docs?: Array<SnippetType>;
+  totalDocs?: number;
+  limit?: number;
+  totalPages?: number;
+  page?: number;
+  pagingCounter?: number;
+  hasPrevPage?: boolean;
+  hasNextPage?: boolean;
+  prevPage?: number | null;
+  nextPage?: number | null;
 };
 
 export enum ViewType {

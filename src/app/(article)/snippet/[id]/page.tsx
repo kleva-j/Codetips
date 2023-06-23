@@ -3,37 +3,20 @@
 import * as React from 'react';
 
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { updateSnippetsState, SnippetStateAtom } from '@/lib/atom';
 import { Heading } from '@/components/ui/heading';
-import { useAtomValue, useAtom } from 'jotai';
 import { Badge } from '@/components/ui/badge';
+import { UseAppContext } from '@/lib/context';
 import { Text } from '@/components/ui/text';
 
 export default function Snippet({ params }: { params: { id: string } }) {
   const { id } = params;
+  const { articles } = UseAppContext().state;
 
-  const { snippets } = useAtomValue(SnippetStateAtom);
-  const [, updateSnippetState] = useAtom(updateSnippetsState);
+  const snippet = (articles?.docs || []).find((snippet) => snippet.id === id);
 
-  const snippetIndex = snippets.findIndex((snippet) => snippet.id === id);
+  if (!snippet) throw new Error(`Snippet with id ${id} not found`);
 
-  if (snippetIndex < 0) throw new Error(`Snippet with id ${id} not found`);
-
-  const snippet = snippets[snippetIndex];
-
-  const update = {
-    nextSnippet: Math.min(snippetIndex + 1, snippets.length - 1),
-    prevSnippet: Math.max(snippetIndex - 1, 0),
-    currentSnippetIndex: snippetIndex,
-    isLoadingSnippets: false,
-    currentSnippet: snippet,
-  };
-
-  React.useEffect(() => {
-    if (snippet) updateSnippetState(update);
-  }, []);
-
-  const { title, description, category, createdAt, tags } = snippet;
+  const { title, description, category, createdAt, tags, content } = snippet;
 
   return (
     <aside>
@@ -57,20 +40,11 @@ export default function Snippet({ params }: { params: { id: string } }) {
               </ul>
             </div>
           </div>
-          <div className="my-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia non
-            doloremque minus eligendi ab ipsam sapiente perferendis vel earum
-            dicta. Quis dignissimos culpa ab dolorem dolor rerum animi cum ipsa.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia non
-            doloremque minus eligendi ab ipsam sapiente perferendis vel earum
-            dicta. Quis dignissimos culpa ab dolorem dolor rerum animi cum ipsa.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia non
-            doloremque minus eligendi ab ipsam sapiente perferendis vel earum
-            dicta. Quis dignissimos culpa ab dolorem dolor rerum animi cum ipsa.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia non
-            doloremque minus eligendi ab ipsam sapiente perferendis vel earum
-            dicta. Quis dignissimos culpa ab dolorem dolor rerum animi cum ipsa.
-          </div>
+          <ul className="my-2 space-y-4">
+            {content?.map((item, index) => (
+              <li key={index}>{JSON.stringify(item, null, 2)}</li>
+            ))}
+          </ul>
         </CardContent>
       </Card>
     </aside>

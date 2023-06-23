@@ -1,7 +1,6 @@
 import NextLink from 'next/link';
 
-import { Heading } from '@/components/ui/heading';
-import { Badge } from '@/components/ui/badge';
+import { UseAppContext } from '@/lib/context';
 import { Text } from '@/components/ui/text';
 import { SnippetType } from '@/types';
 import { FC } from 'react';
@@ -12,39 +11,41 @@ type Props = {
 };
 
 export const SnippetListView: FC<Props> = ({ snippets }) => {
+  const { dispatch } = UseAppContext();
+
   return (
-    <ul className="flex flex-col gap-y-4">
-      {snippets &&
-        snippets.map((snippet) => (
-          <NextLink
-            key={snippet.title}
-            href={`/snippet?id=${snippet.id}`}
-            as={`/snippet/${snippet.id}`}
-          >
-            <li className="flex flex-col gap-y-2 border border-transparent hover:border-accent p-3 rounded cursor-pointer">
-              <div className="flex justify-between">
-                <Heading
-                  variant="h4"
-                  className="text-rose-500 hover:underline cursor-pointer"
-                >
-                  {snippet.title}
-                </Heading>
-                <Text>{snippet.createdAt}</Text>
-              </div>
-              <div className="flex space-x-3 items-center">
-                {snippet.tags?.map((tag) => (
-                  <Badge
-                    key={tag}
-                    variant="outline"
-                    className="cursor-pointer hover:border-rose-500"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-            </li>
-          </NextLink>
-        ))}
-    </ul>
+    <table className="table-auto flex flex-col space-y-4 my-2">
+      <tbody className="flex flex-col divide-y divide-slate-500">
+        {snippets &&
+          snippets.map(({ id, title, createdAt }) => (
+            <NextLink
+              key={title}
+              href={`/snippet?id=${id}`}
+              as={`/snippet/${id}`}
+              title={title}
+              legacyBehavior
+            >
+              <tr
+                className="flex justify-between items-center py-4"
+                onClick={() =>
+                  dispatch({ type: 'SET_ARTICLE_ID', payload: id })
+                }
+              >
+                <td>
+                  <Text className="text-rose-500 hover:underline cursor-pointer underline-offset-4 text-ellipsis line-clamp-1 text-lg">
+                    {title}
+                  </Text>
+                </td>
+                <td>
+                  {new Date(createdAt).toLocaleDateString('en-GB', {
+                    month: 'short',
+                    day: 'numeric',
+                  })}
+                </td>
+              </tr>
+            </NextLink>
+          ))}
+      </tbody>
+    </table>
   );
 };

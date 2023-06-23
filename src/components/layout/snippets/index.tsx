@@ -2,19 +2,23 @@
 
 import React, { useState } from 'react';
 
+import { SnippetListView as ListView } from '@/components/layout/snippets/snippet-list';
+import { SnippetCardView as CardView } from '@/components/layout/snippets/snippet-grid';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
-import { SnippetListView } from '@/components/layout/snippets/snippet-list';
-import { SnippetCardView } from '@/components/layout/snippets/snippet-grid';
 import { Taglist } from '@/components/layout/snippets/taglist';
 import { Heading } from '@/components/ui/heading';
+import { SnippetType, ViewType } from '@/types';
 import { List, LayoutGrid } from 'lucide-react';
 import { UseAppContext } from '@/lib/context';
 import { Text } from '@/components/ui/text';
-import { ViewType } from '@/types';
 
 export const Snippets = () => {
   const [view, setView] = useState<ViewType>(ViewType.list);
-  const { state } = UseAppContext();
+  const { articles } = UseAppContext().state;
+
+  const snippets = (articles.docs || []).filter(
+    (article: SnippetType) => article.type === 'snippet',
+  );
 
   return (
     <section>
@@ -47,12 +51,8 @@ export const Snippets = () => {
               <LayoutGrid size={18} />
             </ToggleGroupItem>
           </ToggleGroup>
-          {view === ViewType.list && (
-            <SnippetListView snippets={state.articles.docs} />
-          )}
-          {view === ViewType.grid && (
-            <SnippetCardView snippets={state.articles.docs} />
-          )}
+          {view === ViewType.list && <ListView snippets={snippets} />}
+          {view === ViewType.grid && <CardView snippets={snippets} />}
         </div>
         <Taglist />
       </aside>

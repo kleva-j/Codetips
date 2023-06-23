@@ -30,6 +30,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
               <Link
                 href={`/snippet?id=${snippets[nextSnippet - 2].id}`}
                 as={`/snippet/${snippets[nextSnippet - 2].id}`}
+                aria-disabled
               >
                 <MoveLeft className="mr-2 h-4 w-4" /> Prev Snippet
               </Link>
@@ -40,6 +41,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
             <Link
               href={`/snippet?id=${snippets[nextSnippet].id}`}
               as={`/snippet/${snippets[nextSnippet].id}`}
+              aria-disabled
             >
               Next Snippet <MoveRight className="ml-2 h-4 w-4" />
             </Link>

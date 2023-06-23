@@ -35,10 +35,13 @@ export function UseAppContext() {
   return context;
 }
 
-function AppReducer(state: typeof initialState, action: Action) {
+function AppReducer(state: State, action: Action) {
   switch (action.type) {
     case 'FETCH_ARTICLES': {
       return { ...state, articles: action.payload };
+    }
+    case 'SET_ARTICLE_ID': {
+      return { ...state, articleId: action.payload };
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
@@ -47,12 +50,12 @@ function AppReducer(state: typeof initialState, action: Action) {
 }
 
 export function ContextProvider({ children }: PropsWithChildren) {
-  const [state, dispatch] = useReducer(AppReducer, initialState);
+  const [state, dispatch] = useReducer(AppReducer, {
+    ...initialState,
+    articles: use<Articles>(fetchArticles()),
+  });
   // NOTE: you *might* need to memoize this value
   // Learn more in http://kcd.im/optimize-context
-  const value = {
-    state: { ...state, articles: use<Articles>(fetchArticles()) },
-    dispatch,
-  };
+  const value = { state, dispatch };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }
