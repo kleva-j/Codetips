@@ -1,0 +1,52 @@
+version: '3.8'
+services:
+  cms:
+    image: node:18-alpine
+    ports:
+      - "3002:3002"
+    volumes:
+      - .:/home/node/app/cms
+      - node_modules:/home/node/app/cms/node_modules
+    working_dir: /home/node/app/cms/
+    command: sh -c "npm install -g pnpm && pnpm install && pnpm --filter cms dev"
+    depends_on:
+      - mongo
+    environment:
+      MONGODB_URI: mongodb+srv://codetips-dev:NiwFVfTXRyRiIRIL@cluster0.pqfii.mongodb.net/codetips-dev
+      PAYLOAD_SECRET: f714e58210538792978804a1
+      PORT: 3002
+      NODE_ENV: development
+      RENDER_EXTERNAL_URL: https://codetips-cms.onrender.com
+      HOSTNAME: http://localhost:3002
+      FRONTEND_URL: http://localhost:3000
+
+  web:
+    image: node:18-alpine
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/home/node/app/web
+      - node_modules:/home/node/app/web/node_modules
+    working_dir: /home/node/app/web/
+    command: sh -c "npm install -g pnpm && pnpm install && pnpm --filter web dev"
+    depends_on:
+      - cms
+    environment:
+      NODE_ENV: development
+      NEXT_PUBLIC_API_URL_PROD: https://codetips-cms.onrender.com/admin
+      NEXT_PUBLIC_API_URL_DEV: http://localhost:3002
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    command:
+      - --storageEngine=wiredTiger
+    volumes:
+      - data:/data/db
+    logging:
+      driver: none
+
+volumes:
+  data:
+  node_modules:

@@ -5,7 +5,7 @@ services:
   payload:
     image: node:18-alpine
     ports:
-      - "3000:3000"
+      - "3002:3002"
     volumes:
       - .:/home/node/app
       - node_modules:/home/node/app/node_modules
@@ -14,10 +14,13 @@ services:
     depends_on:
       - mongo
     environment:
-      MONGODB_URI: mongodb://mongo:27017/payload
-      PORT: 3000
+      MONGODB_URI: mongodb+srv://codetips-dev:NiwFVfTXRyRiIRIL@cluster0.pqfii.mongodb.net/codetips-dev
+      PAYLOAD_SECRET: f714e58210538792978804a1
+      PORT: 3002
       NODE_ENV: development
-      PAYLOAD_SECRET: TESTING
+      RENDER_EXTERNAL_URL: https://codetips-cms.onrender.com
+      HOSTNAME: http://localhost:3002
+      FRONTEND_URL: http://localhost:3000
 
   mongo:
     image: mongo:latest
