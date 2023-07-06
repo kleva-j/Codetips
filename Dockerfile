@@ -3,13 +3,10 @@ FROM node:18-alpine AS base
 FROM base AS builder
 RUN apk add --no-cache libc6-compat
 RUN apk update
-
 # Set working directory
 WORKDIR /app
-RUN npm install -g pnpm turbo
+RUN yarn global add turbo
 COPY . .
-# RUN pnpm global add turbo
-# COPY . .
 RUN turbo prune --scope=web --docker
  
 # Add lockfile and package.json's of isolated subworkspace
@@ -21,15 +18,14 @@ WORKDIR /app
 # First install the dependencies (as they change less often)
 COPY .gitignore .gitignore
 COPY --from=builder /app/out/json/ .
-COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
-RUN pnpm install
+COPY --from=builder /app/out/yarn.lock ./yarn.lock
+RUN yarn install
 
 ENV NEXT_TELEMETRY_DISABLED 1
  
 # Build the project
 COPY --from=builder /app/out/full/ .
-# RUN yarn turbo run build --filter=web...
-RUN pnpm --filter web build
+RUN yarn turbo run build --filter=web...
  
 FROM base AS runner
 WORKDIR /app
@@ -57,4 +53,4 @@ EXPOSE 3000
 
 ENV PORT 3000
 
-CMD ["pnpm", "start"]
+CMD ["yarn", "start"]
