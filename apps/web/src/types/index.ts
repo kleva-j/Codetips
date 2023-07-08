@@ -1,5 +1,5 @@
 export type ProjectType = {
-  name: string;
+  title: string;
   date: string;
   slug: string;
   tagline: string;
@@ -35,8 +35,7 @@ export type AppState = {
   nextArticle: SnippetType | null;
 };
 
-export type ArticlesType = {
-  docs?: Array<SnippetType>;
+export type ApiResult = {
   totalDocs?: number;
   limit?: number;
   totalPages?: number;
@@ -46,6 +45,14 @@ export type ArticlesType = {
   hasNextPage?: boolean;
   prevPage?: number | null;
   nextPage?: number | null;
+}
+
+export type ArticlesType = ApiResult & {
+  docs?: Array<SnippetType>;
+};
+
+export type ProjectsType = ApiResult & {
+  docs?: Array<ProjectType>;
 };
 
 export enum ViewType {

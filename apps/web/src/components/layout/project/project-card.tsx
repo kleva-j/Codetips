@@ -14,14 +14,14 @@ type ProjectCardProps = ProjectType & {
 };
 
 export const ProjectCard: FC<ProjectCardProps> = (props) => {
-  const { name, url, tagline, github_url } = props;
+  const { title, url, tagline, github_url } = props;
 
   return (
     <Card className="flex flex-col bg-light_bg cursor-pointer">
-      <CardHeader className={cn("pb-5 font-semibold")}>{name}</CardHeader>
+      <CardHeader className={cn("pb-5 font-semibold")}>{title}</CardHeader>
 
       <CardContent className="mb-auto">
-        <Text className="text-[14.4px] m-0 line-clamp-2">{tagline}</Text>
+        <Text variant="span" className="text-[14px] m-0 clamp clamp-3">{tagline}</Text>
       </CardContent>
 
       <CardFooter className="pb-5">

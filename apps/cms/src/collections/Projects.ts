@@ -69,8 +69,8 @@ export const Projects: CollectionConfig = {
       name: 'slider',
       type: 'array',
       label: "Image Slider",
-      minRows: 2,
-      maxRows: 10,
+      // minRows: 2,
+      // maxRows: 10,
       labels: {
         singular: "Slide",
         plural: "Slides",
