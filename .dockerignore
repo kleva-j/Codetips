@@ -1,0 +1,9 @@
+**/node_modules
+npm-debug.log
+**/dist
+**/.git
+**/.DS_Store
+.coverage
+.coverage.*
+.env
+.aws
