@@ -1,14 +1,12 @@
-"use client";
+// "use client";
 
 import "../styles/globals.css";
 import "ui/styles.css";
 
 import { type PropsWithChildren } from "react";
 
-import { Navbar } from "@/components/layout";
-import { ThemeProvider } from "next-themes";
 import { fontMono } from "@/lib/fonts";
-import { Toaster } from "ui";
+import { PageWrapper } from "./wrapper";
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
@@ -88,17 +86,18 @@ export default function RootLayout({ children }: PropsWithChildren) {
         name="msapplication-TileImage"
         content="/icons/ms-icon-144x144.png"
       />
-      <meta name="theme-color" content="#ffffff" />
+      <meta
+        name="theme-color"
+        content="#000"
+        media="(prefers-color-scheme: dark)"
+      />
+      <meta
+        name="theme-color"
+        content="#fff"
+        media="(prefers-color-scheme: light)"
+      />
       <body className={fontMono.className}>
-        <ThemeProvider attribute="class">
-          <div className="container">
-            <div className="h-12" />
-            <Navbar />
-            {children}
-            <div className="h-12" />
-          </div>
-          <Toaster />
-        </ThemeProvider>
+        <PageWrapper>{children}</PageWrapper>
       </body>
     </html>
   );

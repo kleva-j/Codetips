@@ -1,3 +1,3 @@
 export default function BlogPosts() {
-  return <div />;
+  return <div>This is the blog post page</div>;
 }

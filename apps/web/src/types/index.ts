@@ -22,7 +22,7 @@ export type SnippetType = {
   };
   description?: string;
   tags?: string[];
-  type?: 'blog' | 'snippet';
+  type?: "blog" | "snippet";
   content?: Array<Record<string, never>>;
 };
 
@@ -45,7 +45,7 @@ export type ApiResult = {
   hasNextPage?: boolean;
   prevPage?: number | null;
   nextPage?: number | null;
-}
+};
 
 export type ArticlesType = ApiResult & {
   docs?: Array<SnippetType>;
@@ -56,8 +56,13 @@ export type ProjectsType = ApiResult & {
 };
 
 export enum ViewType {
-  grid = 'grid',
-  list = 'list',
+  grid = "grid",
+  list = "list",
 }
 
-export type Articles = Pick<AppState, 'articles'>;
+export type Articles = Pick<AppState, "articles">;
+
+export enum colorScheme {
+  light = "light",
+  dark = "dark",
+}
