@@ -25,12 +25,12 @@ export interface HeadingProps
   asChild?: boolean;
 }
 
-const defaultTag = 'h1';
+const defaultVariant = 'h1';
 
 export const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
-  ({ className, variant, asChild = false, ...props }, ref) => {
+  ({ className, variant = defaultVariant, asChild = false, ...props }, ref) => {
     type headingVariant = NonNullable<typeof variant>;
-    const baseVariant: headingVariant = variant || defaultTag;
+    const baseVariant: headingVariant = variant || defaultVariant;
     const Comp = asChild ? Slot : baseVariant;
 
     return (

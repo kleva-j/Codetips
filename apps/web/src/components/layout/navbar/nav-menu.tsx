@@ -6,7 +6,10 @@ import { siteConfig } from "@/config/site";
 import { NavLink } from "./nav-link";
 
 export const NavMenu = () => {
-  const pathname = usePathname();
+  let pathname = usePathname() || "/";
+  if (pathname.includes("/blog/")) pathname = "/blog";
+  if (pathname.includes("/projects/")) pathname = "/projects";
+  if (pathname.includes("/snippet/")) pathname = "/snippet";
 
   return (
     <NavigationMenu>

@@ -1,5 +1,12 @@
-import { Layout } from '@/components/layout/project';
+import { Layout } from "@/components/layout/project";
+import { getProjects } from "@/lib/api";
 
-export default function Projects() {
-  return <Layout />;
+export default async function Projects() {
+  const data = await getProjects();
+
+  return (
+    <section>
+      <Layout projects={data} />
+    </section>
+  );
 }

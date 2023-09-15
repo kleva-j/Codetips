@@ -8,7 +8,7 @@ import { Toaster } from "ui";
 
 export const PageWrapper = ({ children }: PropsWithChildren) => {
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <div className="container">
         <div className="h-12" />
         <Navbar />

@@ -12,8 +12,8 @@ export const siteConfig = {
     { label: 'Snippets', href: '/snippet' },
   ],
   links: {
-    twitter: 'https://twitter.com/shadcn',
-    github: 'https://github.com/shadcn/ui',
+    twitter: 'https://twitter.com/kasmickleva',
+    github: 'https://github.com/kleva-j/codetips',
     docs: 'https://ui.shadcn.com',
   },
 };

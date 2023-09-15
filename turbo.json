@@ -16,5 +16,9 @@
       "cache": false
     }
   },
-  "globalEnv": ["NODE_ENV", "NEXT_PUBLIC_API_URL_PROD", "NEXT_PUBLIC_API_URL_DEV"]
+  "globalEnv": [
+    "NODE_ENV",
+    "NEXT_PUBLIC_API_URL_PROD",
+    "NEXT_PUBLIC_API_URL_DEV"
+  ]
 }

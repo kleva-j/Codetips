@@ -4,7 +4,6 @@ import React, { FC } from "react";
 import Link from "next/link";
 
 import { Card, CardHeader, CardContent, CardFooter, Button, Text } from "ui";
-
 import { ProjectType } from "@/types";
 import { Link2 } from "lucide-react";
 import { cn } from "@/lib/utils";

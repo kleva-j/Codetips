@@ -24,3 +24,9 @@ export const fetchProjects = cache(() =>
     .then((res) => res.json())
     .catch((err) => console.log(err))
 );
+
+export const getProjects = cache(async () => {
+  const res = await fetch(`${api_url}/api/Projects`);
+  if (!res.ok) throw new Error("Failed to fetch data");
+  return res.json();
+});
